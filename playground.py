@@ -1,7 +1,10 @@
-import RSA as R
+from RSA import RSA as rsa
 
-m = 150273791047032865680747870248441107861
-e = 60998537587310735265599422751083155641
+program = rsa.RSAProgram()
+message = rsa.encrypt(program.modulus, program.encrypt)
 
-print(R.encrypt(m, e))
+print(message)
 
+raw_input('press enter when ready to decrypt').lower()
+
+print(rsa.decrypt(message, program.decrypt, program.modulus))
