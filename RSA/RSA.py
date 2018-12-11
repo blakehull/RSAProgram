@@ -62,16 +62,15 @@ def find_primes(): # used in generating public information
     # The primes here are not very large, but this is more for fun than implementation.
     # This is the Miller-Rabin primality test. At 40 rounds, we can be fairly certain the number a is prime.
     # if you are not convinced of this, I suggest something-searching or working out the probability yourself.
-    a = random.randint(2 ** 32, 2 ** 64)
+    a = random.randint(2 ** 256, 2 ** 512)
     while pow(2, a - 1, a) != 1:
         while (a % 2) == 0:
-            a = random.randint(2 ** 32, 2 ** 64)
+            a = random.randint(2 ** 256, 2 ** 512)
         for i in range(1,50):
             if pow(i, a, a) != i:
-                a = random.randint(2 ** 32, 2 ** 64)
+                a = random.randint(2 ** 256, 2 ** 512)
                 break
     return a
-
 
 def get_encryption(b): # used in generating public information
     a = random.randint(4, b)
